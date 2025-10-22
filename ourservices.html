@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Steril Medical Services - Professional medical equipment cleaning for hospitals.">
+    <title>Steril Medical Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ourservices.css">
+</head>
+
+<body>
+
+    <header id="top">
+        <h1>STERIL</h1>
+        <h1>Medical Services</h1>
+        <p>Professional Medical Equipment Cleaning for Hospitals</p>
+    </header>
+
+    <nav>
+        <a href="index.html" id="logo-link">
+            <img class="logo" src="logonavbar.png" alt="Steril Medical Services Logo">
+        </a>
+
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">Over ons</a>
+        <a href="ourservices.html">Onze Diensten</a>
+        <a href="duurzaamheid.html">Duurzaamheid</a>
+        <a href="contact.html">Contact</a>
+            <div class="language-toggle1"><button id="lang-btn">EN 🇬🇧</button></div>
+        </div>
+
+        <div class="language-toggle">
+            <button id="lang-btn2">EN 🇬🇧</button>
+        </div>
+    </nav>
+
+    <div class="main-layout">
+
+         <div class = "left-column">
+            <section id="information">
+            </section>
+         </div>
+
+        <div class="right-column">
+        <section id="services">
+            <h2 id="services-title">Onze Diensten</h2>
+            <p id="services-text" >
+                Sterilisatie van medisch instrumentarium moet op tijd, compleet en steriel uitgevoerd worden. 
+                STERIL streeft ernaar dat proces zodanig te innoveren dat het veilig hergebruik van instrumentarium 
+                met minimale inzet van mensen en minimale footprint de standaard wordt voor alle medische zorginstellingen in de Benelux.
+            </p>
+            <p id="services-methods" >Om dat te bereiken werkt STERIL volgens onderstaande methoden:</p>
+            <ul>
+                <li id="service-1">Streeft naar strategisch partnerships met een lange termijn horizon van 10 + 5 + 5 jaar.</li>
+                <li id="service-2">Zoekt verbinding met netwerk van strategische partners welke zich duurzaam willen committeren aan STERIL:</li>
+                <ul>
+                    <li id="service-2a">Dedicated leverancier(s) van CSA-apparatuur, (non)disposables en vloeistoffen.</li>
+                    <li id="service-2b">Vaste leverancier voor Repair, Maintenance en Spare-parts.</li>
+                    <li id="service-2c">Samenwerking met (inter)nationale kenniscentra gericht op duurzaamheid & innovatie.</li>
+                </ul>
+                <li id="service-3">Laat zich bijstaan door een raad van adviseurs die de (CSA) medische dienstverlening goed kennen.</li>
+                <li id="service-4">Zoekt samen met Med-Tech partijen naar duurzame oplossing om de revenue van instrumentensets te optimaliseren, met kostenreductie en leverbetrouwbaarheid voor de afnemers.</li>
+                <li id="service-5">Innovatie en data-analyse zijn volledig geïntegreerd in de PDCA-cyclus van onze bedrijfsprocessen.</li>
+                <li id="service-6">Actieve deelname om de levensduur van de instrumentensets te optimaliseren.</li>
+                <li id="service-7">Reduceren van de ecologische footprint.</li>
+                <li id="service-8">Voorraadbeheer en –opslag op de CSA-locatie zijn onderdeel van onze ontwikkelagenda.</li>
+                <li id="service-9">Zoekt samenwerking met kapitaalkrachtige partners om langdurige continuïteit te waarborgen.</li>
+            </ul>
+        </section>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Steril Medical Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+        sections.forEach(section => observer.observe(section));
+
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const logo = document.getElementById('logo-link');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+        const isClickInsideNav = navLinks.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+
+        if (!isClickInsideNav && !isClickOnHamburger) {
+            navLinks.classList.remove('show');
+        }
+    });
+
+
+
+const langBtn = document.getElementById('lang-btn');
+const langBtn2 = document.getElementById('lang-btn2');
+let currentLang = 'nl';
+
+function toggleLang() {
+if (currentLang === 'nl') {
+    document.getElementById('services-title').textContent = 'Our Services';
+    document.getElementById('services-text').textContent = 'Sterilization of medical instruments must be carried out on time, completely, and sterile. STERIL strives to innovate this process so that safe reuse of instruments with minimal manpower and minimal footprint becomes the standard for all healthcare institutions in the Benelux.';
+
+    document.getElementById('service-1').textContent = 'Aims for strategic partnerships with a long-term horizon of 10 + 5 + 5 years.';
+    document.getElementById('service-2').textContent = 'Seeks connection with a network of strategic partners committed to sustainability:';
+    document.getElementById('service-2a').textContent = 'Dedicated suppliers of CSA equipment, (non)disposables, and liquids.';
+    document.getElementById('service-2b').textContent = 'Permanent supplier for repair, maintenance, and spare parts.';
+    document.getElementById('service-2c').textContent = 'Collaboration with (inter)national knowledge centers focused on sustainability & innovation.';
+    document.getElementById('service-3').textContent = 'Supported by an advisory board familiar with (CSA) medical services.';
+    document.getElementById('service-4').textContent = 'Works with Med-Tech partners to find sustainable solutions to optimize instrument set revenue, reduce costs, and ensure delivery reliability.';
+    document.getElementById('service-5').textContent = 'Innovation and data analysis are fully integrated into our PDCA cycle.';
+    document.getElementById('service-6').textContent = 'Active participation to optimize the lifespan of instrument sets.';
+    document.getElementById('service-7').textContent = 'Reducing the ecological footprint.';
+    document.getElementById('service-8').textContent = 'Inventory management and storage at the CSA location are part of our development agenda.';
+    document.getElementById('service-9').textContent = 'Seeks cooperation with financially strong partners to ensure long-term continuity.';
+
+    document.querySelector('#nav-links a[href="index.html"]').textContent = 'Home';
+    document.querySelector('#nav-links a[href="aboutus.html"]').textContent = 'About';
+    document.querySelector('#nav-links a[href="ourservices.html"]').textContent = 'Services';
+    document.querySelector('#nav-links a[href="duurzaamheid.html"]').textContent = 'Sustainability';
+    document.querySelector('#nav-links a[href="contact.html"]').textContent = 'Contact';
+
+    langBtn.textContent = 'NL 🇳🇱';
+    langBtn2.textContent = 'NL 🇳🇱';
+    currentLang = 'en';
+} else {
+    document.getElementById('services-title').textContent = 'Onze Diensten';
+    document.getElementById('services-text').textContent = 'Sterilisatie van medisch instrumentarium moet op tijd, compleet en steriel uitgevoerd worden. STERIL streeft ernaar dat proces zodanig te innoveren dat het veilig hergebruik van instrumentarium met minimale inzet van mensen en minimale footprint de standaard wordt voor alle medische zorginstellingen in de Benelux.';
+
+    document.getElementById('service-1').textContent = 'Streeft naar strategisch partnerships met een lange termijn horizon van 10 + 5 + 5 jaar.';
+    document.getElementById('service-2').textContent = 'Zoekt verbinding met netwerk van strategische partners welke zich duurzaam willen committeren aan STERIL:';
+    document.getElementById('service-2a').textContent = 'Dedicated leverancier(s) van CSA-apparatuur, (non)disposables en vloeistoffen.';
+    document.getElementById('service-2b').textContent = 'Vaste leverancier voor Repair, Maintenance en Spare-parts.';
+    document.getElementById('service-2c').textContent = 'Samenwerking met (inter)nationale kenniscentra gericht op duurzaamheid & innovatie.';
+    document.getElementById('service-3').textContent = 'Laat zich bijstaan door een raad van adviseurs die de (CSA) medische dienstverlening goed kennen.';
+    document.getElementById('service-4').textContent = 'Zoekt samen met Med-Tech partijen naar duurzame oplossing om de revenue van instrumentensets te optimaliseren, met kostenreductie en leverbetrouwbaarheid voor de afnemers.';
+    document.getElementById('service-5').textContent = 'Innovatie en data-analyse zijn volledig geïntegreerd in de PDCA-cyclus van onze bedrijfsprocessen.';
+    document.getElementById('service-6').textContent = 'Actieve deelname om de levensduur van de instrumentensets te optimaliseren.';
+    document.getElementById('service-7').textContent = 'Reduceren van de ecologische footprint.';
+    document.getElementById('service-8').textContent = 'Voorraadbeheer en –opslag op de CSA-locatie zijn onderdeel van onze ontwikkelagenda.';
+    document.getElementById('service-9').textContent = 'Zoekt samenwerking met kapitaalkrachtige partners om langdurige continuïteit te waarborgen.';
+
+
+    document.querySelector('#nav-links a[href="index.html"]').textContent = 'Home';
+    document.querySelector('#nav-links a[href="aboutus.html"]').textContent = 'Over ons';
+    document.querySelector('#nav-links a[href="ourservices.html"]').textContent = 'Onze Diensten';
+    document.querySelector('#nav-links a[href="duurzaamheid.html"]').textContent = 'Duurzaamheid';
+    document.querySelector('#nav-links a[href="contact.html"]').textContent = 'Contact';
+
+    langBtn.textContent = 'EN 🇬🇧';
+    langBtn2.textContent = 'EN 🇬🇧';
+    currentLang = 'nl';
+}
+}
+
+langBtn.addEventListener('click', toggleLang);
+langBtn2.addEventListener('click', toggleLang);
+
+
+    </script>
+</body>
+</html>
+

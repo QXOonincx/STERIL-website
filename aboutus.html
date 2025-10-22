@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Steril Medical Services - Professional medical equipment cleaning for hospitals.">
+    <title>Steril Medical Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="aboutus.css">
+</head>
+<body>
+
+<header id="top">
+    <h1>STERIL</h1>
+    <h1>Medical Services</h1>
+    <p>Professional Medical Equipment Cleaning for Hospitals</p>
+</header>
+
+<nav>
+    <a href="index.html" id="logo-link">
+        <img class="logo" src="logonavbar.png" alt="Steril Medical Services Logo">
+    </a>
+
+    <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">Over ons</a>
+        <a href="ourservices.html">Onze Diensten</a>
+        <a href="duurzaamheid.html">Duurzaamheid</a>
+        <a href="contact.html">Contact</a>
+        <div class="language-toggle1">
+            <button id="lang-btn">NL 🇳🇱</button>
+        </div>
+    </div>
+
+    <div class="language-toggle">
+        <button id="lang-btn2">NL 🇳🇱</button>
+    </div>
+</nav>
+
+<div class="main-layout">
+
+    <div class="left-column">
+        <section id="information">
+        </section>
+    </div>
+
+    <div class="right-column">
+        <section id="about-over">
+            <h2 class="about-title">Over Ons</h2>
+            <p class="about-text">
+                STERIL is ontstaan uit een gedeelde ambitie om de medische sterilisatieketen fundamenteel te verbeteren. 
+                De initiatiefnemers combineren jarenlange bestuurservaring in zorginstellingen & industrieële dienstverlening,
+                met slagkracht op procesoptimalisatie en strategische innovatie. Samen vormen zij de drijvende kracht achter een toekomstbestendige, 
+                veilige en duurzame aanpak van medisch steriele dienstverlening aan ziekenhuizen en klinieken in Nederland.
+            </p>
+        </section>
+
+        <section id="about-us">
+            <h2 class="about-title">Wie zijn we</h2>
+            <div class="about-text">
+                <h3>Irene Groenink-Verboon</h3>
+                <p>
+                    Irene is een ervaren zorgondernemer met een sterke focus op het toegankelijk houden van kwalitatief goede zorg, 
+                    procesinnovatie en verandermanagement. Haar expertise ligt in het verbinden van zorgprocessen met strategische doelstellingen.
+                </p>
+
+                <h3>Oscar Oonincx</h3>
+                <p>
+                    Oscar brengt diepgaande kennis van financieel management en operationele processen inclusief die van ondersteunende afdelingen met zich mee. 
+                    Hij is verantwoordelijk voor de borging van de digitale applicaties en het invoeren van verbeterprogramma's vanuit een lean six sigma-methodiek. 
+                    Zijn visie op datagedreven zorglogistiek vormt een kerncomponent van de STERIL-propositie.
+                </p>
+
+                <h3>Maud Curvers</h3>
+                <p>
+                    Maud is gespecialiseerd in duurzaamheid en innovatie in de zorgsector. 
+                    Zij stuurt de samenwerking met universiteiten en technologiepartners aan en bewaakt de ESG-doelstellingen. 
+                    Haar inzet voor circulaire processen en meetbare impact maakt duurzaamheid tot een integraal onderdeel van de dienstverlening.
+                </p>
+            </div>
+        </section>
+
+        <section id="about-missie">
+            <h2 class="about-title">Missie</h2>
+            <p class="about-text">
+                De missie van STERIL is om het proces van medische sterilisatie niet alleen op tijd, compleet en steriel uit te voeren, 
+                maar het proces zodanig te innoveren dat het veilig hergebruik van instrumentarium met minimale inzet van mensen en minimale footprint 
+                de standaard wordt voor alle medische zorginstellingen in de Benelux.
+            </p>
+        </section>
+
+        <section id="about-visie">
+            <h2 class="about-title">Visie</h2>
+            <p class="about-text">
+                De visie van STERIL is om de klant te ontzorgen door het proces van veilig hergebruik van medisch instrumentarium te optimaliseren door technologie,
+                innovatie, verduurzaming en een klantgerichte aanpak te combineren. Dit doen we door het ouderwetse sterilisatieconcept te combineren met moderne technologie, 
+                waarbij we met behulp van data-analyse en living labs het (her)gebruik, de voorraad en distributie structureel verbeteren en zo veilig en betaalbaar houden.
+                De focus ligt op een veilige patiëntenzorg, het waar mogelijk automatiseren van de keten en het voorkomen van vervuiling en verspilling van materialen, 
+                energie en water. Wij geloven in continue verbetering, technologische innovatie en mensgericht vakmanschap als fundament voor toegankelijke en betaalbare zorg.
+            </p>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Steril Medical Services. All rights reserved.</p>
+</footer>
+
+<script>
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+    });
+});
+
+document.addEventListener('click', (event) => {
+    const isClickInsideNav = navLinks.contains(event.target);
+    const isClickOnHamburger = hamburger.contains(event.target);
+
+    if (!isClickInsideNav && !isClickOnHamburger) {
+        navLinks.classList.remove('show');
+    }
+});
+
+const langBtn = document.getElementById('lang-btn');
+const langBtn2 = document.getElementById('lang-btn2');
+let currentLang = 'nl';
+
+function toggleLang() {
+    if (currentLang === 'nl') {
+        document.querySelector('#about-over .about-title').textContent = 'About Us';
+        document.querySelector('#about-over .about-text').textContent =
+            'STERIL was born out of a shared ambition to fundamentally improve the medical sterilization chain. The founders combine years of management experience in healthcare institutions and industrial services with strong expertise in process optimization and strategic innovation. Together, they drive a future-proof, safe, and sustainable approach to sterile medical services for hospitals and clinics in the Netherlands.';
+
+        document.querySelector('#about-us .about-title').textContent = 'Who We Are';
+        document.querySelector('#about-us .about-text').innerHTML = `
+            <h3>Irene Groenink-Verboon</h3>
+            <p>Irene is an experienced healthcare entrepreneur with a strong focus on maintaining accessible, high-quality care, process innovation, and change management. Her expertise lies in connecting healthcare processes with strategic objectives.</p>
+            
+            <h3>Oscar Oonincx</h3>
+            <p>Oscar brings in-depth knowledge of financial management and operational processes, including those of supporting departments. He is responsible for safeguarding digital applications and implementing improvement programs based on lean six sigma principles. His vision of data-driven healthcare logistics is a key component of the STERIL proposition.</p>
+            
+            <h3>Maud Curvers</h3>
+            <p>Maud specializes in sustainability and innovation within the healthcare sector. She manages collaborations with universities and technology partners and ensures ESG objectives are met. Her commitment to circular processes and measurable impact makes sustainability an integral part of the company’s services.</p>
+        `;
+
+        document.querySelector('#about-missie .about-title').textContent = 'Mission';
+        document.querySelector('#about-missie .about-text').textContent =
+            'STERIL’s mission is not only to perform the process of medical sterilization on time, completely, and safely, but to innovate it in such a way that the safe reuse of instruments—with minimal human input and minimal environmental footprint—becomes the standard for all healthcare institutions in the Benelux.';
+
+        document.querySelector('#about-visie .about-title').textContent = 'Vision';
+        document.querySelector('#about-visie .about-text').textContent =
+            'STERIL’s vision is to unburden clients by optimizing the process of safe reuse of medical instruments through technology, innovation, sustainability, and a customer-oriented approach. We combine traditional sterilization concepts with modern technology, using data analysis and living labs to structurally improve (re)use, stock, and distribution, keeping care safe and affordable. The focus is on patient safety, automation where possible, and preventing pollution and waste of materials, energy, and water. We believe in continuous improvement, technological innovation, and people-centered craftsmanship as the foundation for accessible and affordable healthcare.';
+
+        document.querySelector('#nav-links a[href="index.html"]').textContent = 'Home';
+        document.querySelector('#nav-links a[href="aboutus.html"]').textContent = 'About';
+        document.querySelector('#nav-links a[href="ourservices.html"]').textContent = 'Services';
+        document.querySelector('#nav-links a[href="duurzaamheid.html"]').textContent = 'Sustainability';
+        document.querySelector('#nav-links a[href="contact.html"]').textContent = 'Contact';
+
+        langBtn.textContent = 'NL 🇳🇱';
+        langBtn2.textContent = 'NL 🇳🇱';
+        currentLang = 'en';
+    } else {
+        document.querySelector('#about-over .about-title').textContent = 'Over Ons';
+        document.querySelector('#about-over .about-text').textContent =
+            'STERIL is ontstaan uit een gedeelde ambitie om de medische sterilisatieketen fundamenteel te verbeteren. De initiatiefnemers combineren jarenlange bestuurservaring in zorginstellingen en industriële dienstverlening, met slagkracht op procesoptimalisatie en strategische innovatie. Samen vormen zij de drijvende kracht achter een toekomstbestendige, veilige en duurzame aanpak van medisch steriele dienstverlening aan ziekenhuizen en klinieken in Nederland.';
+
+        document.querySelector('#about-us .about-title').textContent = 'Wie zijn we';
+        document.querySelector('#about-us .about-text').innerHTML = `
+            <h3>Irene Groenink-Verboon</h3>
+            <p>Irene is een ervaren zorgondernemer met een sterke focus op het toegankelijk houden van kwalitatief goede zorg, procesinnovatie en verandermanagement. Haar expertise ligt in het verbinden van zorgprocessen met strategische doelstellingen.</p>
+            
+            <h3>Oscar Oonincx</h3>
+            <p>Oscar brengt diepgaande kennis van financieel management en operationele processen inclusief die van ondersteunende afdelingen met zich mee. Hij is verantwoordelijk voor de borging van de digitale applicaties en het invoeren van verbeterprogramma's vanuit een lean six sigma-methodiek. Zijn visie op datagedreven zorglogistiek vormt een kerncomponent van de STERIL-propositie.</p>
+            
+            <h3>Maud Curvers</h3>
+            <p>Maud is gespecialiseerd in duurzaamheid en innovatie in de zorgsector. Zij stuurt de samenwerking met universiteiten en technologiepartners aan en bewaakt de ESG-doelstellingen. Haar inzet voor circulaire processen en meetbare impact maakt duurzaamheid tot een integraal onderdeel van de dienstverlening.</p>
+        `;
+
+        document.querySelector('#about-missie .about-title').textContent = 'Missie';
+        document.querySelector('#about-missie .about-text').textContent =
+            'De missie van STERIL is om het proces van medische sterilisatie niet alleen op tijd, compleet en steriel uit te voeren, maar het proces zodanig te innoveren dat het veilig hergebruik van instrumentarium met minimale inzet van mensen en minimale footprint de standaard wordt voor alle medische zorginstellingen in de Benelux.';
+
+        document.querySelector('#about-visie .about-title').textContent = 'Visie';
+        document.querySelector('#about-visie .about-text').textContent =
+            'De visie van STERIL is om de klant te ontzorgen door het proces van veilig hergebruik van medisch instrumentarium te optimaliseren door technologie, innovatie, verduurzaming en een klantgerichte aanpak te combineren. Dit doen we door het ouderwetse sterilisatieconcept te combineren met moderne technologie, waarbij we met behulp van data-analyse en living labs het (her)gebruik, de voorraad en distributie structureel verbeteren en zo veilig en betaalbaar houden. De focus ligt op een veilige patiëntenzorg, het waar mogelijk automatiseren van de keten en het voorkomen van vervuiling en verspilling van materialen, energie en water. Wij geloven in continue verbetering, technologische innovatie en mensgericht vakmanschap als fundament voor toegankelijke en betaalbare zorg.';
+
+
+        document.querySelector('#nav-links a[href="index.html"]').textContent = 'Home';
+        document.querySelector('#nav-links a[href="aboutus.html"]').textContent = 'Over ons';
+        document.querySelector('#nav-links a[href="ourservices.html"]').textContent = 'Onze Diensten';
+        document.querySelector('#nav-links a[href="duurzaamheid.html"]').textContent = 'Duurzaamheid';
+        document.querySelector('#nav-links a[href="contact.html"]').textContent = 'Contact';
+
+        langBtn.textContent = 'EN 🇬🇧';
+        langBtn2.textContent = 'EN 🇬🇧';
+        currentLang = 'nl';
+    }
+}
+
+langBtn.addEventListener('click', toggleLang);
+langBtn2.addEventListener('click', toggleLang);
+
+</script>
+</body>
+</html>
